@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Jogo - Gameflix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">GAMEFLIX</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li> <li><a href="#">Trailers</a></li>
+                <li><a href="#">Categories</a></li>
+            </ul>
+        </nav>
+        <div class="search-icon">
+            <i class="fas fa-search"></i>
+        </div>
+    </header>
+
+    <main class="game-details-section">
+        <div class="game-details-poster">
+            <img id="detail-game-poster" src="https://via.placeholder.com/400x550?text=Carregando+Jogo..." alt="Pôster do Jogo">
+        </div>
+        <div class="game-info">
+            <h1 id="detail-game-title">Carregando Título...</h1>
+            <p id="detail-game-meta" class="game-meta">Carregando Metadados...</p>
+            <p id="detail-game-synopsis" class="full-synopsis">
+                Carregando Sinopse...
+            </p>
+            <div class="game-actions">
+                <button class="buy-button">Comprar Agora</button>
+                <button class="add-list-button">Adicionar à Lista</button>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="detalhes.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+/* Comentário: Aqui vamos definir estilos globais para o corpo da página. */
+body {
+    background-color: #141414; /* Cor de fundo escura, quase preta */
+    color: white; /* Cor do texto padrão será branco */
+    font-family: 'Arial', sans-serif; /* Fonte Arial, e se não tiver, uma fonte genérica sem serifa */
+    margin: 0; /* Remove a margem padrão do navegador */
+    padding: 0; /* Remove o preenchimento padrão do navegador */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura do elemento */
+}
+
+/* Comentário: Estilos para o cabeçalho principal do site */
+.main-header {
+    display: flex; /* Transforma o cabeçalho em um container flexível */
+    justify-content: space-between; /* Distribui os itens (logo, navegação, busca) nas extremidades */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding: 20px 40px; /* Espaçamento interno (20px em cima/baixo, 40px nas laterais) */
+    background-color: #0d0d0d; /* Fundo do cabeçalho um pouco mais escuro que o corpo */
+    border-bottom: 1px solid #282828; /* Linha sutil na parte inferior */
+}
+
+/* Comentário: Estilos para o logo "GAMEFLIX" */
+.logo {
+    color: #e50914; /* Cor vermelha para o logo, como na Netflix */
+    font-size: 2em; /* Tamanho da fonte maior (2x o tamanho padrão) */
+    font-weight: bold; /* Deixa o texto em negrito */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+
+/* Comentário: Estilos para a navegação principal (Home, Trailers, Categories) */
+.main-nav ul {
+    list-style: none; /* Remove os marcadores de lista padrão */
+    margin: 0; /* Remove a margem padrão da lista */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+    display: flex; /* Transforma os itens de lista em um container flexível */
+}
+
+.main-nav li {
+    margin-right: 30px; /* Espaçamento entre os itens do menu */
+}
+
+.main-nav a {
+    color: white; /* Cor do texto dos links */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    font-size: 1.1em; /* Tamanho da fonte dos links */
+    transition: color 0.3s ease; /* Efeito de transição suave na cor */
+}
+
+.main-nav a:hover {
+    color: #e50914; /* Cor vermelha ao passar o mouse (hover) */
+}
+
+/* Comentário: Estilos para o contêiner de busca (lupa + input) */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Comentário: Estilos para o ícone de busca (lupa) */
+.search-toggle {
+    color: white;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+/* Comentário: Estilos para o campo de input de busca */
+.search-input {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 1em;
+    width: 0; /* Largura inicial zero para estar oculto */
+    opacity: 0; /* Opacidade zero para estar invisível */
+    transition: width 0.3s ease, opacity 0.3s ease; /* Transição suave */
+    pointer-events: none; /* Impede cliques quando oculto */
+}
+
+/* Comentário: Quando o campo de busca está ativo/visível */
+.search-input.active {
+    width: 200px; /* Largura quando visível */
+    opacity: 1; /* Torna-o visível */
+    pointer-events: auto; /* Permite cliques quando visível */
+}
+
+.search-input::placeholder {
+    color: #ccc;
+}
+
+/* Comentário: Estilos para a seção principal de destaque (Hero Section) */
+.hero-section {
+    height: 600px; /* Altura da seção */
+    background-size: cover; /* Faz a imagem de fundo cobrir toda a área */
+    background-position: center top; /* Centraliza a imagem no topo */
+    display: flex; /* Para centralizar o conteúdo dentro */
+    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+    padding: 0 40px; /* Espaçamento nas laterais */
+    position: relative; /* Necessário para posicionar elementos filhos, como a sombra */
+    z-index: 1; /* Garante que esta seção esteja acima de outros elementos se houver sobreposição */
+}
+
+/* Comentário: Adiciona uma sombra escura na parte de baixo da imagem para o texto aparecer melhor */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Altura da sombra */
+    background: linear-gradient(to top, rgba(20,20,20,1) 0%, rgba(20,20,20,0) 100%); /* Gradiente de preto transparente para preto sólido */
+    z-index: 2; /* Garante que a sombra esteja acima da imagem de fundo */
+}
+
+/* Comentário: Estilos para o conteúdo (título, botão, sinopse) dentro da Hero Section */
+.hero-content {
+    max-width: 600px; /* Largura máxima do conteúdo para não esticar muito */
+    position: relative; /* Para que o conteúdo fique acima da sombra */
+    z-index: 3; /* Garante que o conteúdo esteja acima da sombra */
+}
+
+/* Comentário: Estilos para o título do jogo */
+.game-title {
+    font-size: 4em; /* Tamanho do título do jogo */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    color: white; /* Cor do título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para o texto para destacá-lo */
+}
+
+/* Comentário: Estilos para o botão "Play Trailer" */
+.play-trailer-btn {
+    background-color: white; /* Fundo branco para o botão */
+    color: black; /* Texto preto */
+    padding: 15px 30px; /* Preenchimento interno do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    font-size: 1.2em; /* Tamanho da fonte do botão */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Muda o cursor para uma mãozinha */
+    display: inline-flex; /* MUITO IMPORTANTE: Faz com que o botão se ajuste ao conteúdo, não estique */
+    align-items: center; /* Alinha verticalmente */
+    gap: 10px; /* Espaçamento entre o ícone e o texto */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+    width: auto; /* Garante que a largura seja automática */
+    text-decoration: none; /* Remove sublinhado se for um link (para o caso de usarmos <a>) */
+}
+
+.play-trailer-btn:hover {
+    background-color: #e50914; /* Muda para vermelho no hover */
+    color: white; /* Texto branco no hover */
+}
+
+/* Comentário: Estilos para a sinopse do jogo */
+.game-synopsis {
+    font-size: 1.1em; /* Tamanho da fonte da sinopse */
+    line-height: 1.6; /* Espaçamento entre as linhas */
+    margin-top: 25px; /* Espaçamento acima da sinopse */
+    color: #ddd; /* Cor do texto da sinopse (um cinza claro) */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Sombra para o texto */
+}
+
+/* Comentário: Estilos para as seções de categoria (Horror, Action, etc.) */
+.game-category {
+    margin-top: 40px; /* Espaçamento acima de cada seção de categoria */
+    padding: 0 40px; /* Espaçamento nas laterais para alinhar com o cabeçalho e hero */
+}
+
+/* Comentário: Estilos para o título de cada categoria */
+.category-title {
+    font-size: 1.8em; /* Tamanho da fonte do título da categoria */
+    color: white; /* Cor do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Comentário: Estilos para o contêiner do carrossel (setas + lista de jogos) */
+.carousel-container {
+    position: relative; /* Essencial para posicionar as setas sobre ele */
+    display: flex; /* Para alinhar as setas com a lista de jogos */
+    align-items: center; /* Centraliza as setas verticalmente com a lista */
+}
+
+/* Comentário: Estilos para a lista de jogos dentro de cada categoria (o "carrossel") */
+.game-list {
+    display: flex; /* Transforma a lista em um container flexível, colocando os cards lado a lado */
+    overflow-x: auto; /* Permite a rolagem horizontal se houver muitos cards */
+    scroll-behavior: smooth; /* Rolagem suave */
+    padding-bottom: 15px; /* Espaçamento abaixo dos cards para a barra de rolagem */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    gap: 15px; /* Espaçamento entre os cards */
+    width: 100%; /* Garante que a lista de jogos ocupe o espaço disponível */
+    padding-left: 50px; /* Adiciona padding para que os cards não fiquem escondidos pela seta esquerda */
+    padding-right: 50px; /* Adiciona padding para a seta direita */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+/* Comentário: Esconde a barra de rolagem especificamente para navegadores WebKit */
+.game-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Comentário: Estilos para cada card de jogo (o pôster) */
+.game-card {
+    flex-shrink: 0;
+    flex-basis: 200px; /* Largura base para cada card */
+    flex-grow: 1; /* Permite que os cards cresçam para preencher o espaço disponível */
+    max-width: 300px; /* Aumentado: Permite que o card cresça um pouco mais */
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: block; /* Importante para que a imagem preencha o link */
+    text-decoration: none; /* Remove o sublinhado do link */
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Comentário: Estilos para as setas de navegação do carrossel */
+.carousel-arrow {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente escuro */
+    color: white; /* Cor da seta */
+    border: none;
+    padding: 20px 10px; /* Preenchimento para tornar a área clicável maior */
+    cursor: pointer;
+    z-index: 10; /* Garante que a seta esteja acima dos cards */
+    position: absolute; /* Posição absoluta dentro do carousel-container */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste para centralização perfeita */
+    font-size: 1.5em; /* Tamanho da seta */
+    height: 100%; /* Ocupa toda a altura da lista de jogos */
+    opacity: 0; /* Oculta as setas por padrão */
+    transition: opacity 0.3s ease; /* Transição suave para aparecer/desaparecer */
+}
+
+.carousel-arrow.left-arrow {
+    left: 0; /* Posição à esquerda */
+    border-top-right-radius: 5px; /* Bordas arredondadas apenas de um lado */
+    border-bottom-right-radius: 5px;
+}
+
+.carousel-arrow.right-arrow {
+    right: 0; /* Posição à direita */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Comentário: Mostra as setas ao passar o mouse sobre o contêiner do carrossel */
+.carousel-container:hover .carousel-arrow {
+    opacity: 1; /* Torna as setas visíveis */
+}
+
+/* Comentário: Estilo ao passar o mouse sobre a seta */
+.carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* Mais escuro no hover */
+}
+
+/* Comentário: Estilos para a Página de Detalhes do Jogo */
+.game-details-section {
+    display: flex; /* Layout flexível para pôster e informações */
+    padding: 40px; /* Espaçamento interno */
+    gap: 40px; /* Espaçamento entre o pôster e as informações */
+    margin-top: 30px; /* Espaçamento do cabeçalho */
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+.game-details-poster img {
+    width: 100%; /* Imagem ocupa 100% da largura do seu container */
+    max-width: 300px; /* Largura máxima para o pôster */
+    height: auto;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Sombra para destacar */
+}
+
+.game-info {
+    flex: 1; /* Ocupa o restante do espaço disponível */
+}
+
+.game-info h1 {
+    font-size: 3em; /* Tamanho do título do jogo */
+    margin-bottom: 10px;
+    color: #e50914; /* Cor vermelha para o título */
+}
+
+.game-meta {
+    font-size: 1.1em;
+    color: #aaa; /* Cor cinza para metadados */
+    margin-bottom: 20px;
+}
+
+.full-synopsis {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ddd; /* Cor cinza clara para a sinopse */
+    margin-bottom: 30px;
+}
+
+.game-actions {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os botões */
+}
+
+.buy-button, .add-list-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buy-button {
+    background-color: #e50914; /* Vermelho vibrante */
+    color: white;
+}
+
+.buy-button:hover {
+    background-color: #c00812; /* Vermelho mais escuro no hover */
+}
+
+.add-list-button {
+    background-color: #333; /* Cinza escuro */
+    color: white;
+    border: 1px solid #555;
+}
+
+.add-list-button:hover {
+    background-color: #555;
+}
+
+/* Comentário: Estilos para o Modal (Pop-up de Trailer) */
+.modal {
+    display: none; /* ESSENCIAL: Oculta o modal por padrão */
+    position: fixed; /* Posição fixa na tela */
+    z-index: 1000; /* Garante que o modal fique acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total da tela */
+    height: 100%; /* Altura total da tela */
+    overflow: auto; /* Permite rolagem se o conteúdo for grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo preto semi-transparente */
+    display: flex; /* Para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Comentário: Quando o modal estiver ativo (mostrando) */
+.modal.active {
+    display: flex; /* ESSENCIAL: Torna o modal visível */
+}
+
+.modal-content {
+    background-color: #1a1a1a; /* Fundo do conteúdo do modal */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    position: relative; /* Essencial para posicionar o botão de fechar e o vídeo dentro dele */
+    width: 90%; /* Largura do conteúdo do modal */
+    max-width: 900px; /* Largura máxima */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+.close-button {
+    color: white; /* Cor do "x" */
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute; /* Posição absoluta em relação ao .modal-content */
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1001; /* Garante que o botão de fechar esteja acima do vídeo */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #e50914; /* Muda a cor para vermelho ao passar o mouse ou focar */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção de aspecto 16:9 (altura é 56.25% da largura) */
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px; /* Espaçamento abaixo do botão de fechar */
+}
+
+.video-container iframe {
+    position: absolute; /* Preenche o .video-container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Comentário: Media Queries para Responsividade (Geral) */
+@media (max-width: 768px) {
+    /* Ajustes para o cabeçalho */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+    .main-nav {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    .main-nav li {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .main-nav a {
+        display: block;
+        padding: 8px 0;
+    }
+    .search-icon {
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+    .search-container {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 15px;
+    }
+    .search-input.active {
+        width: calc(100% - 40px);
+    }
+
+    /* Ajustes para a seção principal (Hero Section) */
+    .hero-section {
+        height: 450px;
+        padding: 0 20px;
+        background-position: 70% center;
+    }
+    .hero-section::after {
+        height: 100px;
+    }
+    .hero-content {
+        max-width: 90%;
+    }
+    .game-title {
+        font-size: 2.8em;
+        margin-bottom: 10px;
+    }
+    .play-trailer-btn {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    .game-synopsis {
+        font-size: 0.95em;
+        line-height: 1.5;
+        margin-top: 20px;
+    }
+
+    /* Ajustes para as seções de categorias de jogos */
+    .game-category {
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+    .category-title {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .game-card {
+        width: 150px;
+        margin-right: 10px;
+    }
+
+    /* Ajustes para a Página de Detalhes em telas menores */
+    .game-details-section {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    .game-details-poster img {
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+    .game-info h1 {
+        font-size: 2.2em;
+        text-align: center;
+    }
+    .game-meta, .full-synopsis {
+        text-align: center;
+    }
+    .game-actions {
+        justify-content: center;
+    }
+
+    /* Comentário: Media Queries ESPECÍFICAS para o modal em telas menores */
+    /* APENAS AJUSTES ESPECÍFICOS PARA TELAS MENORES DEVEM ESTAR AQUI */
+    .modal-content {
+        width: 95%; /* Aumenta a largura em telas menores */
+        padding: 15px;
+    }
+    .close-button {
+        font-size: 24px;
+        top: 5px;
+        right: 15px;
+    }
+    .video-container {
+        padding-bottom: 75%; /* Proporção de aspecto 4:3 para vídeos em celular, ou pode manter 16:9 */
+    }
+} /* FIM da Media Query de 768px */
